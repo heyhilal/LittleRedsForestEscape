@@ -1,0 +1,11 @@
+Model Information:
+* title:	Fallen tree 3D scan, with lichen and snow
+* source:	https://sketchfab.com/3d-models/fallen-tree-3d-scan-with-lichen-and-snow-56ae35fbda7c4391beae8dfdc28be662
+* author:	jasonwebb (https://sketchfab.com/jasonwebb)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Fallen tree 3D scan, with lichen and snow" (https://sketchfab.com/3d-models/fallen-tree-3d-scan-with-lichen-and-snow-56ae35fbda7c4391beae8dfdc28be662) by jasonwebb (https://sketchfab.com/jasonwebb) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
