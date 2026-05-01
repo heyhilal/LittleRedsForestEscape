@@ -1,0 +1,11 @@
+Model Information:
+* title:	Wooden Barrel_9_MB
+* source:	https://sketchfab.com/3d-models/wooden-barrel-9-mb-81844f96a44a4d94971bb3922c720d3a
+* author:	Mehdi Shahsavan (https://sketchfab.com/ahmagh2e)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Wooden Barrel_9_MB" (https://sketchfab.com/3d-models/wooden-barrel-9-mb-81844f96a44a4d94971bb3922c720d3a) by Mehdi Shahsavan (https://sketchfab.com/ahmagh2e) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

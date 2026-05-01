@@ -92,38 +92,35 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void HandleLevel2Movement(float h, float v)
+{
+    level2ForwardDirection = Vector3.Lerp(
+        level2ForwardDirection,
+        targetForwardDirection,
+        turnSmoothSpeed * Time.deltaTime
+    ).normalized;
+
+    Vector3 forward = level2ForwardDirection.normalized;
+    Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
+
+    // W/S ileri geri, A/D yana kayma
+    moveInput = forward * v + right * h * strafeAmount;
+
+    if (moveInput.magnitude > 1f)
+        moveInput.Normalize();
+
+    // Karakter her zaman yol yönüne baksın
+    Vector3 lookDirection = forward;
+
+    if (Mathf.Abs(v) > 0.1f || Mathf.Abs(h) > 0.1f)
     {
-        level2ForwardDirection = Vector3.Lerp(
-            level2ForwardDirection,
-            targetForwardDirection,
-            turnSmoothSpeed * Time.deltaTime
-        ).normalized;
-
-        Vector3 forward = level2ForwardDirection.normalized;
-        Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
-
-        // W/S ileri geri, A/D sadece yana kayma
-        moveInput = forward * v + right * h * strafeAmount;
-
-        if (moveInput.magnitude > 1f)
-            moveInput.Normalize();
-
-        // Karakterin vücudu her zaman yolun yönüne baksın
-        Vector3 lookDirection = forward;
-
-        if (v < -0.1f)
-            lookDirection = -forward;
-
-        if (Mathf.Abs(v) > 0.1f || Mathf.Abs(h) > 0.1f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
-                targetRotation,
-                bodyTurnSpeed * Time.deltaTime
-            );
-        }
+        Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            targetRotation,
+            bodyTurnSpeed * Time.deltaTime
+        );
     }
+}
 
     void HandleNormalMovement(float h, float v)
     {
@@ -179,7 +176,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.name == "RightTurnTrigger (2)")
         {
-            targetForwardDirection = (Vector3.left + Vector3.forward * 1.0f).normalized;
+            targetForwardDirection = (Vector3.left + Vector3.forward * 1.4f).normalized;
         }
 
         if (other.gameObject.name == "StraightTrigger")
@@ -227,4 +224,10 @@ if (collision.gameObject.CompareTag("Obstacle") && canTakeDamage)
     {
         canTakeDamage = true;
     }
+
+    public void SetMoveDirection(Vector3 newDirection)
+{
+    level2ForwardDirection = newDirection.normalized;
+    enableTurnSystem = true;
+}
 }

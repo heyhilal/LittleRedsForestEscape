@@ -17,6 +17,10 @@ public class CameraFollow : MonoBehaviour
 
     public float smoothSpeed = 5f;
 
+    [Header("Level2 Fix")]
+    public bool lockCameraDirection = false;
+    public Vector3 fixedDirection = new Vector3(0, 0, 1);
+
     void LateUpdate()
     {
         if (target == null) return;
@@ -25,9 +29,20 @@ public class CameraFollow : MonoBehaviour
 
         if (followBehindTarget)
         {
+            Vector3 followDirection;
+
+            if (lockCameraDirection)
+            {
+                followDirection = fixedDirection.normalized;
+            }
+            else
+            {
+                followDirection = target.forward;
+            }
+
             desiredPosition =
                 target.position
-                - target.forward * distance
+                - followDirection * distance
                 + Vector3.up * height
                 + target.right * sideOffset
                 + transform.right * worldSideOffset;
@@ -43,13 +58,6 @@ public class CameraFollow : MonoBehaviour
             smoothSpeed * Time.deltaTime
         );
 
-if (followBehindTarget)
-{
-    transform.LookAt(target.position + Vector3.up * lookHeight);
-}
-else
-{
-    transform.LookAt(target.position);
-}
+        transform.LookAt(target.position + Vector3.up * lookHeight);
     }
 }

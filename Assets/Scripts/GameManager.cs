@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public int collectedCount = 0;
-    public int totalCollectibles = 5;
+    public int totalCollectibles = 4;
     public int score = 0;
 
     public TMP_Text crystalText;
@@ -19,25 +19,79 @@ public class GameManager : MonoBehaviour
     public bool levelCompleted = false;
 
     private void Awake()
-{
-    if (instance == null)
     {
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
-    else
-    {
-        Destroy(gameObject);
-        return;
-    }
-}
 
     private void Start()
     {
         Time.timeScale = 1f;
-        UpdateUI();
 
+        FindSceneUIObjects();
+        HidePanels();
+        UpdateUI();
+    }
+
+private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+{
+    FindSceneUIObjects();
+    HidePanels();
+
+    collectedCount = 0;
+    levelCompleted = false;
+
+    if (scene.name == "Level1")
+    {
+        totalCollectibles = 5; // Level1 kristal sayın
+    }
+    else if (scene.name == "Level2")
+    {
+        totalCollectibles = 4; // Level2 kristal sayın
+    }
+
+    UpdateUI();
+    Time.timeScale = 1f;
+}
+
+    private void FindSceneUIObjects()
+    {
+        GameObject scoreObj = GameObject.Find("ScoreText");
+        if (scoreObj != null)
+        {
+            crystalText = scoreObj.GetComponent<TMP_Text>();
+        }
+
+        GameObject gameOverObj = GameObject.Find("GameOverPanel");
+        if (gameOverObj != null)
+        {
+            gameOverPanel = gameOverObj;
+        }
+
+        GameObject levelCompleteObj = GameObject.Find("LevelCompletePanel");
+        if (levelCompleteObj != null)
+        {
+            levelCompletePanel = levelCompleteObj;
+        }
+
+        GameObject warningObj = GameObject.Find("WarningText");
+        if (warningObj != null)
+        {
+            warningText = warningObj;
+        }
+    }
+
+    private void HidePanels()
+    {
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
 
@@ -47,24 +101,11 @@ public class GameManager : MonoBehaviour
         if (warningText != null)
             warningText.SetActive(false);
     }
-private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-{
-    if (crystalText == null)
-    {
-        GameObject scoreObj = GameObject.Find("ScoreText");
 
-        if (scoreObj != null)
-        {
-            crystalText = scoreObj.GetComponent<TMP_Text>();
-        }
-    }
-
-    UpdateUI();
-}
     public void CollectItem()
     {
         collectedCount++;
-        score += 15;   // her kristal +15 puan
+        score += 15;
 
         UpdateUI();
 
@@ -112,13 +153,17 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         warningText.SetActive(false);
     }
 
-    public void LoadNextLevel()
-    {
-        if (!levelCompleted) return;
+ public void LoadNextLevel()
+{
+    if (!levelCompleted) return;
 
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("Level2");
-    }
+    Time.timeScale = 1f;
+
+    collectedCount = 0;
+    levelCompleted = false;
+
+    SceneManager.LoadScene("Level2");
+}
 
     public void ShowGameOver()
     {
@@ -129,4 +174,35 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 
         Time.timeScale = 0f;
     }
-} 
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1f;
+
+        collectedCount = 0;
+        score = 0;
+        levelCompleted = false;
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1f;
+
+        collectedCount = 0;
+        score = 0;
+        levelCompleted = false;
+
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
+}

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Stylized bush
+* source:	https://sketchfab.com/3d-models/stylized-bush-50a50c35841044a38cf18a504b290e5c
+* author:	selskiy_durachok (https://sketchfab.com/selskiy_durachok)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Stylized bush" (https://sketchfab.com/3d-models/stylized-bush-50a50c35841044a38cf18a504b290e5c) by selskiy_durachok (https://sketchfab.com/selskiy_durachok) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.6650944, g: 0.9113307, b: 1, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.028
@@ -2584,8 +2584,8 @@ GameObject:
   - component: {fileID: 1248175506}
   - component: {fileID: 1248175505}
   - component: {fileID: 1248175508}
-  - component: {fileID: 1248175509}
   - component: {fileID: 1248175510}
+  - component: {fileID: 1248175511}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -2633,7 +2633,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 500
   field of view: 50
   orthographic: 0
   orthographic size: 5
@@ -2711,27 +2711,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!114 &1248175509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248175502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc6430fe771884c5189476ca36d2e6f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraFollow
-  target: {fileID: 1106950260}
-  offset: {x: 0, y: 1.4, z: -3}
-  followBehindTarget: 0
-  distance: 35
-  height: 14
-  sideOffset: 0
-  worldSideOffset: 0
-  lookHeight: 3
-  smoothSpeed: 2
 --- !u!114 &1248175510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2749,6 +2728,22 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: d5d7bc2ed259348c1a182fed26a55ec3, type: 2}
+--- !u!114 &1248175511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248175502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dbcbf27cd714f79a55b90731240c8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Level1CameraFollow
+  target: {fileID: 2071795499}
+  offset: {x: 0.2, y: 1.3, z: -2}
+  smoothSpeed: 5
+  lookHeight: 1
 --- !u!1 &1271993696
 GameObject:
   m_ObjectHideFlags: 0
