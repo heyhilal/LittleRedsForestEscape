@@ -2,32 +2,40 @@ using UnityEngine;
 
 public class Level3TurnTrigger : MonoBehaviour
 {
-    public Transform exitPoint;
-    public Vector3 newMoveDirection = Vector3.right;
+    public bool isLeftTurnTrigger = false;
+    public bool isRightTurnTrigger = false;
 
+    [Header("Smooth Direction Settings")]
+    public Vector3 leftMoveDirection = new Vector3(-1f, 0f, 1.5f);
+    public Vector3 rightMoveDirection = new Vector3(1f, 0f, 1.5f);
+
+    public bool useOnlyOnce = true;
     private bool used = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (used) return;
+        if (useOnlyOnce && used) return;
 
         if (other.CompareTag("Player"))
         {
-            used = true;
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
 
-            PlayerMovement playerMovement = other.GetComponent<PlayerMovement>();
-
-            if (playerMovement != null)
+            if (player != null)
             {
-                playerMovement.SetMoveDirection(newMoveDirection);
-            }
+                if (isLeftTurnTrigger)
+                {
+                    player.SetLevel3MoveDirection(leftMoveDirection);
+                    used = true;
+                    Debug.Log("Level3 yumuşak sol dönüş çalıştı");
+                }
 
-            if (exitPoint != null)
-            {
-                other.transform.position = exitPoint.position;
+                if (isRightTurnTrigger)
+                {
+                    player.SetLevel3MoveDirection(rightMoveDirection);
+                    used = true;
+                    Debug.Log("Level3 yumuşak sağ dönüş çalıştı");
+                }
             }
-
-            gameObject.SetActive(false);
         }
     }
 }

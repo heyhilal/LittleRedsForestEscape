@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cozy Medieval Cottage
+* source:	https://sketchfab.com/3d-models/cozy-medieval-cottage-46ddc0a1d4e94b9f91260874db31e13e
+* author:	ItsKrish7 (https://sketchfab.com/ItsKrish7)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cozy Medieval Cottage" (https://sketchfab.com/3d-models/cozy-medieval-cottage-46ddc0a1d4e94b9f91260874db31e13e) by ItsKrish7 (https://sketchfab.com/ItsKrish7) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

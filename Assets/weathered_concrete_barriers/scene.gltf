@@ -1,0 +1,471 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 993,
+      "max": [
+        1.0210518836975098,
+        0.4051209092140198,
+        0.8298178315162659
+      ],
+      "min": [
+        -1.0172990560531616,
+        -0.41076213121414185,
+        0.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 11916,
+      "componentType": 5126,
+      "count": 993,
+      "max": [
+        0.9995996356010437,
+        0.9997344017028809,
+        0.9999640583992004
+      ],
+      "min": [
+        -0.9996042847633362,
+        -0.9991456866264343,
+        -0.9999991655349731
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 993,
+      "max": [
+        0.9995223879814148,
+        0.9999411702156067,
+        0.9973900318145752,
+        1.0
+      ],
+      "min": [
+        -0.9998809099197388,
+        -0.8981996178627014,
+        -0.9826584458351135,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 993,
+      "max": [
+        0.9839558005332947,
+        0.9970172047615051
+      ],
+      "min": [
+        0.0032907084096223116,
+        0.0030812944751232862
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 7944,
+      "componentType": 5126,
+      "count": 993,
+      "max": [
+        0.9839558005332947,
+        0.9970172047615051
+      ],
+      "min": [
+        0.0032907084096223116,
+        0.0030812944751232862
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 15888,
+      "componentType": 5126,
+      "count": 993,
+      "max": [
+        0.9839558005332947,
+        0.9970172047615051
+      ],
+      "min": [
+        0.0032907084096223116,
+        0.0030812944751232862
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 4380,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 23832,
+      "componentType": 5126,
+      "count": 911,
+      "max": [
+        1.0310039520263672,
+        0.6600255966186523,
+        0.829811155796051
+      ],
+      "min": [
+        -1.0286688804626465,
+        -0.6534193754196167,
+        0.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 34764,
+      "componentType": 5126,
+      "count": 911,
+      "max": [
+        0.988935649394989,
+        0.9989026784896851,
+        0.9999998807907104
+      ],
+      "min": [
+        -0.9924171566963196,
+        -0.9815410375595093,
+        -0.9999991059303284
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 15888,
+      "componentType": 5126,
+      "count": 911,
+      "max": [
+        0.925399661064148,
+        0.9977133870124817,
+        0.9999998211860657,
+        1.0
+      ],
+      "min": [
+        -0.9456080794334412,
+        -0.991769015789032,
+        -0.9997612237930298,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 23832,
+      "componentType": 5126,
+      "count": 911,
+      "max": [
+        0.8468115925788879,
+        0.8642266988754272
+      ],
+      "min": [
+        0.003352614352479577,
+        0.0031031379476189613
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 31120,
+      "componentType": 5126,
+      "count": 911,
+      "max": [
+        0.8468115925788879,
+        0.8642266988754272
+      ],
+      "min": [
+        0.003352614352479577,
+        0.0031031379476189613
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 38408,
+      "componentType": 5126,
+      "count": 911,
+      "max": [
+        0.8468115925788879,
+        0.8642266988754272
+      ],
+      "min": [
+        0.003352614352479577,
+        0.0031031379476189613
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 17520,
+      "componentType": 5125,
+      "count": 4128,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Guy in a Poncho (https://sketchfab.com/ponchoguy)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/weathered-concrete-barriers-58b198cf6f054a68882852924c6a2a2c",
+      "title": "Weathered Concrete Barriers"
+    },
+    "generator": "Sketchfab-17.3.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 34032,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 45696,
+      "byteOffset": 34032,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 45696,
+      "byteOffset": 79728,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 30464,
+      "byteOffset": 125424,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 155888,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/weathered_concrete_barriers_baseColor.png"
+    },
+    {
+      "uri": "textures/weathered_concrete_barriers_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/weathered_concrete_barriers_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "weathered_concrete_barriers",
+      "normalTexture": {
+        "index": 2
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "concrete_barriers_barrier_red_weathered_concrete_barriers_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "concrete_barriers_barrier_yellow_weathered_concrete_barriers_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 8,
+            "POSITION": 7,
+            "TANGENT": 9,
+            "TEXCOORD_0": 10,
+            "TEXCOORD_1": 11,
+            "TEXCOORD_2": 12
+          },
+          "indices": 13,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "e7a3219693f847dd84ada3e54a91f9a7.fbx"
+    },
+    {
+      "children": [
+        3,
+        5
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        -57.265167236328125,
+        0.0,
+        -43.30058288574219,
+        1.0
+      ],
+      "name": "concrete_barriers_barrier_red"
+    },
+    {
+      "mesh": 0,
+      "name": "concrete_barriers_barrier_red_weathered_concrete_barriers_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        134.80152893066406,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "concrete_barriers_barrier_yellow"
+    },
+    {
+      "mesh": 1,
+      "name": "concrete_barriers_barrier_yellow_weathered_concrete_barriers_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

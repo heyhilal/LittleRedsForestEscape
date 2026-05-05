@@ -1,0 +1,11 @@
+Model Information:
+* title:	Realistic Wolf 3D Model 2.0 (Demo Free Download)
+* source:	https://sketchfab.com/3d-models/realistic-wolf-3d-model-20-demo-free-download-3a969e2c3bf544d48345685b0c1f59e2
+* author:	WildMesh 3D (https://sketchfab.com/WildMesh_3D)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Realistic Wolf 3D Model 2.0 (Demo Free Download)" (https://sketchfab.com/3d-models/realistic-wolf-3d-model-20-demo-free-download-3a969e2c3bf544d48345685b0c1f59e2) by WildMesh 3D (https://sketchfab.com/WildMesh_3D) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

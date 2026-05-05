@@ -1,0 +1,317 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 1268,
+      "max": [
+        1.3734132051467896,
+        0.08491788804531097,
+        3.386302947998047
+      ],
+      "min": [
+        -1.094099521636963,
+        -0.17429320514202118,
+        -0.8565296530723572
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 15216,
+      "componentType": 5126,
+      "count": 1268,
+      "max": [
+        0.9999683499336243,
+        1.0,
+        0.9999982714653015
+      ],
+      "min": [
+        -0.9999682903289795,
+        -1.0,
+        -0.9999979138374329
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 1268,
+      "max": [
+        0.9999982118606567,
+        1.0,
+        0.9822950959205627,
+        1.0
+      ],
+      "min": [
+        -0.9999552369117737,
+        -1.0,
+        -0.9999734163284302,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 1268,
+      "max": [
+        0.9986602067947388,
+        0.9908810257911682
+      ],
+      "min": [
+        0.001339733600616455,
+        0.06081625819206238
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 10144,
+      "componentType": 5126,
+      "count": 1268,
+      "max": [
+        0.9986602067947388,
+        0.9908810257911682
+      ],
+      "min": [
+        0.001339733600616455,
+        0.06081625819206238
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 20288,
+      "componentType": 5126,
+      "count": 1268,
+      "max": [
+        0.9986602067947388,
+        0.9908810257911682
+      ],
+      "min": [
+        0.001339733600616455,
+        0.06081625819206238
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 2052,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "ChoboiAssets (https://sketchfab.com/alsoliman905)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/wooden-sign-999a50b9950348b6a3f20755caae75ad",
+      "title": "Wooden sign"
+    },
+    "generator": "Sketchfab-16.72.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 8208,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 30432,
+      "byteOffset": 8208,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 30432,
+      "byteOffset": 38640,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 20288,
+      "byteOffset": 69072,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 89360,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/wooden_sign_texture_baseColor.png"
+    },
+    {
+      "uri": "textures/wooden_sign_texture_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/wooden_sign_texture_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "wooden_sign_texture",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Cube.014_wooden sign texture_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "1e22a9a1eb794b52a3e0f30b6867e6f6.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        109.03795487752639,
+        0.9471509059954127,
+        -4.015615150488473e-09,
+        0.0,
+        1.378321300843366e-07,
+        -1.629148531634428e-05,
+        -99.99999999999868,
+        0.0,
+        -0.8686495784914031,
+        100.00072105129424,
+        -1.6292800080225283e-05,
+        0.0,
+        2.9101908206939697,
+        16.705699920654297,
+        0.0,
+        1.0
+      ],
+      "name": "Cube.014"
+    },
+    {
+      "mesh": 0,
+      "name": "Cube.014_wooden sign texture_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

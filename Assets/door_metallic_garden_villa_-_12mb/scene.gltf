@@ -1,0 +1,692 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 10816,
+      "max": [
+        17.801219940185547,
+        490.73040771484375,
+        14.502644538879395
+      ],
+      "min": [
+        -288.0179443359375,
+        2.842170943040401e-14,
+        -14.502644538879395
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 129792,
+      "componentType": 5126,
+      "count": 10816,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 10816,
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        -1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 10816,
+      "max": [
+        0.9447528123855591,
+        0.99951171875
+      ],
+      "min": [
+        0.0004883513320237398,
+        0.0039020776748657227
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 48312,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 259584,
+      "componentType": 5126,
+      "count": 10853,
+      "max": [
+        288.0179443359375,
+        490.73040771484375,
+        14.502644538879395
+      ],
+      "min": [
+        -17.801219940185547,
+        2.842170943040401e-14,
+        -14.502644538879395
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 389820,
+      "componentType": 5126,
+      "count": 10853,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 173056,
+      "componentType": 5126,
+      "count": 10853,
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 86528,
+      "componentType": 5126,
+      "count": 10853,
+      "max": [
+        0.945476233959198,
+        0.994173526763916
+      ],
+      "min": [
+        0.0004886721144430339,
+        0.00048828125
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 193248,
+      "componentType": 5125,
+      "count": 48312,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 520056,
+      "componentType": 5126,
+      "count": 10816,
+      "max": [
+        17.801219940185547,
+        490.73040771484375,
+        14.502644538879395
+      ],
+      "min": [
+        -288.0179443359375,
+        2.842170943040401e-14,
+        -14.502644538879395
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 649848,
+      "componentType": 5126,
+      "count": 10816,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 346704,
+      "componentType": 5126,
+      "count": 10816,
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        -1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 173352,
+      "componentType": 5126,
+      "count": 10816,
+      "max": [
+        0.9447528123855591,
+        0.99951171875
+      ],
+      "min": [
+        0.0004883513320237398,
+        0.0039020776748657227
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 386496,
+      "componentType": 5125,
+      "count": 48312,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 779640,
+      "componentType": 5126,
+      "count": 10853,
+      "max": [
+        288.0179443359375,
+        490.73040771484375,
+        14.502644538879395
+      ],
+      "min": [
+        -17.801219940185547,
+        2.842170943040401e-14,
+        -14.502644538879395
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 909876,
+      "componentType": 5126,
+      "count": 10853,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 519760,
+      "componentType": 5126,
+      "count": 10853,
+      "max": [
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 259880,
+      "componentType": 5126,
+      "count": 10853,
+      "max": [
+        0.945476233959198,
+        0.994173526763916
+      ],
+      "min": [
+        0.0004886721144430339,
+        0.00048828125
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 579744,
+      "componentType": 5125,
+      "count": 48312,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "adventurer (https://sketchfab.com/ahmagh2e)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/door-metallic-garden-villa-12mb-3fdd859134d4493196b758f165592a12",
+      "title": "Door metallic Garden villa - 12MB"
+    },
+    "generator": "Sketchfab-16.12.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 772992,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 346704,
+      "byteOffset": 772992,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1040112,
+      "byteOffset": 1119696,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 693408,
+      "byteOffset": 2159808,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 2853216,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Scene_-_Root_baseColor.png"
+    },
+    {
+      "uri": "textures/Scene_-_Root_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/Scene_-_Root_normal.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Scene_-_Root",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "DoormetallicGardenvilla__0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "DoormetallicGardenvilla_1__0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "DoormetallicGardenvilla_2__0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 11,
+            "POSITION": 10,
+            "TANGENT": 12,
+            "TEXCOORD_0": 13
+          },
+          "indices": 14,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "DoormetallicGardenvilla_1_2__0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 16,
+            "POSITION": 15,
+            "TANGENT": 17,
+            "TEXCOORD_0": 18
+          },
+          "indices": 19,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "5b379bfde27345cb8a36a8d68245d199.fbx"
+    },
+    {
+      "children": [
+        3,
+        8
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4,
+        6
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        2.842170943040401e-14,
+        -3.0985422134399414,
+        1.7763568394002505e-15,
+        1.0
+      ],
+      "name": "01"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        288.67388916015625,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "DoormetallicGardenvilla"
+    },
+    {
+      "mesh": 0,
+      "name": "DoormetallicGardenvilla__0"
+    },
+    {
+      "children": [
+        7
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -288.67388916015625,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "DoormetallicGardenvilla_1"
+    },
+    {
+      "mesh": 1,
+      "name": "DoormetallicGardenvilla_1__0"
+    },
+    {
+      "children": [
+        9,
+        11
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -765.8389282226563,
+        -3.0985422134399414,
+        1.7763568394002505e-15,
+        1.0
+      ],
+      "name": "02"
+    },
+    {
+      "children": [
+        10
+      ],
+      "matrix": [
+        0.8495882901262913,
+        0.0,
+        0.527446430720964,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -0.527446430720964,
+        0.0,
+        0.8495882901262913,
+        0.0,
+        288.67388916015625,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "DoormetallicGardenvilla_2"
+    },
+    {
+      "mesh": 2,
+      "name": "DoormetallicGardenvilla_2__0"
+    },
+    {
+      "children": [
+        12
+      ],
+      "matrix": [
+        0.42613700660363263,
+        0.0,
+        -0.9046586381629789,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.9046586381629789,
+        0.0,
+        0.42613700660363263,
+        0.0,
+        -288.67388916015625,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "DoormetallicGardenvilla_1_2"
+    },
+    {
+      "mesh": 3,
+      "name": "DoormetallicGardenvilla_1_2__0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    }
+  ]
+}

@@ -14,18 +14,24 @@ public class PlayerHealth : MonoBehaviour
 
     private Renderer[] playerRenderers;
     private bool isBlinking = false;
+    private bool isDead = false;
 
     void Start()
     {
         currentHealth = maxHealth;
-        UpdateHearts();
+        isDead = false;
+        isBlinking = false;
+
+        Time.timeScale = 1f;
 
         playerRenderers = GetComponentsInChildren<Renderer>();
+        UpdateHearts();
     }
 
     public void TakeDamage(int damage)
     {
-        if (isBlinking) return; // blink sırasında tekrar hasar almasın
+        if (isDead) return;
+        if (isBlinking) return;
 
         currentHealth -= damage;
 
@@ -34,12 +40,13 @@ public class PlayerHealth : MonoBehaviour
 
         UpdateHearts();
 
-        StartCoroutine(BlinkEffect());
-
         if (currentHealth <= 0)
         {
             GameOver();
+            return;
         }
+
+        StartCoroutine(BlinkEffect());
     }
 
     IEnumerator BlinkEffect()
@@ -55,21 +62,29 @@ public class PlayerHealth : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
         }
 
+        SetPlayerVisible(true);
         isBlinking = false;
     }
 
     void SetPlayerVisible(bool visible)
     {
+        if (playerRenderers == null) return;
+
         foreach (Renderer rend in playerRenderers)
         {
-            rend.enabled = visible;
+            if (rend != null)
+                rend.enabled = visible;
         }
     }
 
     void UpdateHearts()
     {
+        if (hearts == null) return;
+
         for (int i = 0; i < hearts.Length; i++)
         {
+            if (hearts[i] == null) continue;
+
             if (i < currentHealth)
                 hearts[i].color = fullColor;
             else
@@ -79,11 +94,20 @@ public class PlayerHealth : MonoBehaviour
 
     void GameOver()
     {
+        isDead = true;
+        isBlinking = false;
+
+        SetPlayerVisible(true);
+
         Debug.Log("Game Over!");
 
         if (GameManager.instance != null)
         {
             GameManager.instance.ShowGameOver();
+        }
+        else
+        {
+            Debug.LogWarning("GameManager instance bulunamadı!");
         }
     }
 }

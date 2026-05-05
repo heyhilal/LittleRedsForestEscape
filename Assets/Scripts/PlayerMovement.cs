@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,11 +11,17 @@ public class PlayerMovement : MonoBehaviour
     public float strafeAmount = 0.5f;
 
     public bool useXAxisAsForward = false;
+    public Transform respawnPoint;
+
+    [Header("Level 1 Side Body Turn")]
+    public bool enableSideBodyTurn = false;
+    public float sideTurnAmount = 0.45f;
+    public float sideTurnSpeed = 5f;
 
     [Header("Level 2 Landing Fix")]
     public bool snapToGroundOnLanding = false;
 
-    [Header("Level 2 Turn System")]
+    [Header("Level 2 / Level 3 Turn System")]
     public bool enableTurnSystem = false;
     public Vector3 level2ForwardDirection = Vector3.left;
     public float turnSmoothSpeed = 1.5f;
@@ -30,8 +37,10 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 moveInput;
     private float currentSpeed;
-
     public bool canMove = true;
+
+    private bool canTurnLeft = false;
+    private bool canTurnRight = false;
 
     void Start()
     {
@@ -63,6 +72,18 @@ public class PlayerMovement : MonoBehaviour
         if (enableTurnSystem)
         {
             HandleLevel2Movement(h, v);
+
+            if (canTurnLeft && h < -0.1f)
+            {
+                targetForwardDirection = (Vector3.left + Vector3.forward * 1f).normalized;
+                canTurnLeft = false;
+            }
+
+            if (canTurnRight && h > 0.1f)
+            {
+                targetForwardDirection = (Vector3.right * 1.2f + Vector3.forward * 0.8f).normalized;
+                canTurnRight = false;
+            }
         }
         else
         {
@@ -70,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         bool isMoving = moveInput.magnitude > 0.1f;
-        bool isRunning = isMoving && 
+        bool isRunning = isMoving &&
             (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
 
         currentSpeed = isRunning ? runSpeed : walkSpeed;
@@ -92,35 +113,37 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void HandleLevel2Movement(float h, float v)
-{
-    level2ForwardDirection = Vector3.Lerp(
-        level2ForwardDirection,
-        targetForwardDirection,
-        turnSmoothSpeed * Time.deltaTime
-    ).normalized;
-
-    Vector3 forward = level2ForwardDirection.normalized;
-    Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
-
-    // W/S ileri geri, A/D yana kayma
-    moveInput = forward * v + right * h * strafeAmount;
-
-    if (moveInput.magnitude > 1f)
-        moveInput.Normalize();
-
-    // Karakter her zaman yol yönüne baksın
-    Vector3 lookDirection = forward;
-
-    if (Mathf.Abs(v) > 0.1f || Mathf.Abs(h) > 0.1f)
     {
-        Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
-        transform.rotation = Quaternion.Slerp(
-            transform.rotation,
-            targetRotation,
-            bodyTurnSpeed * Time.deltaTime
-        );
+        level2ForwardDirection = Vector3.Lerp(
+            level2ForwardDirection,
+            targetForwardDirection,
+            turnSmoothSpeed * Time.deltaTime
+        ).normalized;
+
+        Vector3 forward = level2ForwardDirection.normalized;
+        Vector3 right = Vector3.Cross(Vector3.up, forward).normalized;
+
+        moveInput = forward * v + right * h * strafeAmount;
+
+        if (moveInput.magnitude > 1f)
+            moveInput.Normalize();
+
+        Vector3 lookDirection = forward + right * h * 0.55f;
+
+        if (lookDirection.magnitude < 0.1f)
+            lookDirection = forward;
+
+        if (Mathf.Abs(v) > 0.1f || Mathf.Abs(h) > 0.1f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                targetRotation,
+                bodyTurnSpeed * Time.deltaTime
+            );
+        }
     }
-}
 
     void HandleNormalMovement(float h, float v)
     {
@@ -132,10 +155,32 @@ public class PlayerMovement : MonoBehaviour
         if (moveInput.magnitude > 1f)
             moveInput.Normalize();
 
-        if (v > 0.1f)
-            transform.forward = useXAxisAsForward ? Vector3.left : Vector3.forward;
-        else if (v < -0.1f)
-            transform.forward = useXAxisAsForward ? Vector3.right : Vector3.back;
+        Vector3 baseForward = useXAxisAsForward ? Vector3.left : Vector3.forward;
+        Vector3 baseBack = useXAxisAsForward ? Vector3.right : Vector3.back;
+        Vector3 baseRight = useXAxisAsForward ? Vector3.back : Vector3.right;
+
+        if (enableSideBodyTurn && Mathf.Abs(h) > 0.1f)
+        {
+            Vector3 lookDirection = baseForward + baseRight * h * sideTurnAmount;
+
+            if (v < -0.1f)
+                lookDirection = baseBack + baseRight * h * sideTurnAmount;
+
+            Quaternion targetRotation = Quaternion.LookRotation(lookDirection.normalized);
+
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                targetRotation,
+                sideTurnSpeed * Time.deltaTime
+            );
+        }
+        else
+        {
+            if (v > 0.1f)
+                transform.forward = baseForward;
+            else if (v < -0.1f)
+                transform.forward = baseBack;
+        }
     }
 
     void FixedUpdate()
@@ -151,7 +196,11 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 jumpDirection = transform.forward * forwardJumpForce;
 
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        rb.linearVelocity = new Vector3(
+            rb.linearVelocity.x,
+            0f,
+            rb.linearVelocity.z
+        );
 
         rb.AddForce(
             new Vector3(jumpDirection.x, jumpForce, jumpDirection.z),
@@ -170,19 +219,13 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         if (other.gameObject.name == "RightTurnTrigger")
-        {
             targetForwardDirection = (Vector3.left + Vector3.forward * 0.6f).normalized;
-        }
 
         if (other.gameObject.name == "RightTurnTrigger (2)")
-        {
             targetForwardDirection = (Vector3.left + Vector3.forward * 1.4f).normalized;
-        }
 
         if (other.gameObject.name == "StraightTrigger")
-{
-    targetForwardDirection = Vector3.forward;
-}
+            targetForwardDirection = Vector3.forward;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -201,19 +244,19 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-if (collision.gameObject.CompareTag("Obstacle") && canTakeDamage)
-{
-    if (playerHealth != null)
-        playerHealth.TakeDamage(1);
+        if (collision.gameObject.CompareTag("Obstacle") && canTakeDamage)
+        {
+            if (playerHealth != null)
+                playerHealth.TakeDamage(1);
 
-    // Karakteri çarptığı yerden biraz geri it
-    Vector3 pushDirection = -transform.forward;
-    rb.MovePosition(rb.position + pushDirection * 2f);
+            Vector3 pushDirection = -transform.forward;
+            rb.MovePosition(rb.position + pushDirection * 2f);
 
-    canTakeDamage = false;
-    Invoke(nameof(ResetDamage), damageCooldown);
-}
+            canTakeDamage = false;
+            Invoke(nameof(ResetDamage), damageCooldown);
+        }
     }
+
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -225,9 +268,59 @@ if (collision.gameObject.CompareTag("Obstacle") && canTakeDamage)
         canTakeDamage = true;
     }
 
-    public void SetMoveDirection(Vector3 newDirection)
-{
-    level2ForwardDirection = newDirection.normalized;
-    enableTurnSystem = true;
-}
+    public void SetLevel3MoveDirection(Vector3 newDirection)
+    {
+        enableTurnSystem = true;
+
+        Vector3 currentDirection = transform.forward;
+        currentDirection.y = 0f;
+        currentDirection.Normalize();
+
+        level2ForwardDirection = currentDirection;
+
+        newDirection.y = 0f;
+        newDirection.Normalize();
+
+        targetForwardDirection = newDirection;
+
+        Debug.Log("Yeni hedef yön: " + targetForwardDirection);
+    }
+
+    public void EnableLeftTurn()
+    {
+        enableTurnSystem = true;
+        canTurnLeft = true;
+    }
+
+    public void EnableRightTurn()
+    {
+        enableTurnSystem = true;
+        canTurnRight = true;
+    }
+
+    public void Respawn()
+    {
+        if (respawnPoint == null)
+        {
+            Debug.LogWarning("Respawn Point atanmadı!");
+            return;
+        }
+
+        canMove = false;
+        moveInput = Vector3.zero;
+
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
+        transform.position = respawnPoint.position;
+        transform.rotation = respawnPoint.rotation;
+
+        StartCoroutine(EnableMovement());
+    }
+
+    IEnumerator EnableMovement()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canMove = true;
+    }
 }

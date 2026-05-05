@@ -1,0 +1,11 @@
+Model Information:
+* title:	Little Post FBX
+* source:	https://sketchfab.com/3d-models/little-post-fbx-f913e1e26f394214b885247f122c5c29
+* author:	GetDeadEntertainment (https://sketchfab.com/GetDeadEntertainment)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Little Post FBX" (https://sketchfab.com/3d-models/little-post-fbx-f913e1e26f394214b885247f122c5c29) by GetDeadEntertainment (https://sketchfab.com/GetDeadEntertainment) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

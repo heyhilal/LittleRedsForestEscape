@@ -1,0 +1,11 @@
+Model Information:
+* title:	Animated Wolf
+* source:	https://sketchfab.com/3d-models/animated-wolf-23a3a563d48049d5b9844ddc1b5b6e79
+* author:	igor-lir (https://sketchfab.com/igor-lir)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Animated Wolf" (https://sketchfab.com/3d-models/animated-wolf-23a3a563d48049d5b9844ddc1b5b6e79) by igor-lir (https://sketchfab.com/igor-lir) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -36,58 +36,79 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
-
         FindSceneUIObjects();
         HidePanels();
         UpdateUI();
     }
 
-private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-{
-    FindSceneUIObjects();
-    HidePanels();
-
-    collectedCount = 0;
-    levelCompleted = false;
-
-    if (scene.name == "Level1")
+    private void OnDestroy()
     {
-        totalCollectibles = 5; // Level1 kristal sayın
-    }
-    else if (scene.name == "Level2")
-    {
-        totalCollectibles = 4; // Level2 kristal sayın
+        if (instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+        }
     }
 
-    UpdateUI();
-    Time.timeScale = 1f;
-}
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Time.timeScale = 1f;
+
+        collectedCount = 0;
+        levelCompleted = false;
+
+        gameOverPanel = null;
+        levelCompletePanel = null;
+        warningText = null;
+        crystalText = null;
+
+        FindSceneUIObjects();
+        HidePanels();
+
+        if (scene.name == "Level1")
+        {
+            totalCollectibles = 5;
+        }
+        else if (scene.name == "Level2")
+        {
+            totalCollectibles = 4;
+        }
+        else if (scene.name == "Level3")
+        {
+            totalCollectibles = 4; // Level3 kristal sayına göre değiştir
+        }
+
+        UpdateUI();
+    }
 
     private void FindSceneUIObjects()
     {
-        GameObject scoreObj = GameObject.Find("ScoreText");
+        GameObject scoreObj = FindObjectEvenIfInactive("ScoreText");
         if (scoreObj != null)
-        {
             crystalText = scoreObj.GetComponent<TMP_Text>();
+
+        gameOverPanel = FindObjectEvenIfInactive("GameOverPanel");
+        levelCompletePanel = FindObjectEvenIfInactive("LevelCompletePanel");
+        warningText = FindObjectEvenIfInactive("WarningText");
+
+        if (gameOverPanel == null)
+            Debug.LogWarning("GameOverPanel sahnede bulunamadı!");
+        else
+            Debug.Log("GameOverPanel bulundu: " + gameOverPanel.name);
+    }
+
+    private GameObject FindObjectEvenIfInactive(string objectName)
+    {
+        Transform[] allObjects = Resources.FindObjectsOfTypeAll<Transform>();
+
+        foreach (Transform obj in allObjects)
+        {
+            if (obj.name == objectName && obj.gameObject.scene == SceneManager.GetActiveScene())
+            {
+                return obj.gameObject;
+            }
         }
 
-        GameObject gameOverObj = GameObject.Find("GameOverPanel");
-        if (gameOverObj != null)
-        {
-            gameOverPanel = gameOverObj;
-        }
-
-        GameObject levelCompleteObj = GameObject.Find("LevelCompletePanel");
-        if (levelCompleteObj != null)
-        {
-            levelCompletePanel = levelCompleteObj;
-        }
-
-        GameObject warningObj = GameObject.Find("WarningText");
-        if (warningObj != null)
-        {
-            warningText = warningObj;
-        }
+        return null;
     }
 
     private void HidePanels()
@@ -153,26 +174,34 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         warningText.SetActive(false);
     }
 
- public void LoadNextLevel()
-{
-    if (!levelCompleted) return;
+    public void LoadNextLevel()
+    {
+        if (!levelCompleted) return;
 
-    Time.timeScale = 1f;
+        Time.timeScale = 1f;
 
-    collectedCount = 0;
-    levelCompleted = false;
+        collectedCount = 0;
+        levelCompleted = false;
 
-    SceneManager.LoadScene("Level2");
-}
+        SceneManager.LoadScene("Level2");
+    }
 
     public void ShowGameOver()
     {
+        if (gameOverPanel == null)
+        {
+            gameOverPanel = FindObjectEvenIfInactive("GameOverPanel");
+        }
+
         if (gameOverPanel != null)
         {
             gameOverPanel.SetActive(true);
+            Time.timeScale = 0f;
         }
-
-        Time.timeScale = 0f;
+        else
+        {
+            Debug.LogWarning("GameOverPanel bulunamadı!");
+        }
     }
 
     public void RestartLevel()
@@ -182,6 +211,11 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         collectedCount = 0;
         score = 0;
         levelCompleted = false;
+
+        gameOverPanel = null;
+        levelCompletePanel = null;
+        warningText = null;
+        crystalText = null;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -193,6 +227,11 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         collectedCount = 0;
         score = 0;
         levelCompleted = false;
+
+        gameOverPanel = null;
+        levelCompletePanel = null;
+        warningText = null;
+        crystalText = null;
 
         SceneManager.LoadScene("MainMenu");
     }

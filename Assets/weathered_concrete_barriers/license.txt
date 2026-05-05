@@ -1,0 +1,11 @@
+Model Information:
+* title:	Weathered Concrete Barriers
+* source:	https://sketchfab.com/3d-models/weathered-concrete-barriers-58b198cf6f054a68882852924c6a2a2c
+* author:	Guy in a Poncho (https://sketchfab.com/ponchoguy)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Weathered Concrete Barriers" (https://sketchfab.com/3d-models/weathered-concrete-barriers-58b198cf6f054a68882852924c6a2a2c) by Guy in a Poncho (https://sketchfab.com/ponchoguy) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
