@@ -19,7 +19,6 @@ public class Level3SmallLeftTurnTrigger : MonoBehaviour
                 player.SetLevel3MoveDirection(newMoveDirection);
                 used = true;
 
-                Debug.Log("Level3 küçük sola dönüş çalıştı");
             }
         }
     }

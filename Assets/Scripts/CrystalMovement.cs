@@ -21,14 +21,13 @@ public class CrystalMovement : MonoBehaviour
 
     private void Update()
     {
-        // Daha belirgin dönme
         transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
 
-        // Yukarı-aşağı süzülme
+      
         float newY = startPosition.y + Mathf.Sin(Time.time * floatSpeed) * floatHeight;
         transform.position = new Vector3(startPosition.x, newY, startPosition.z);
 
-        // Hafif büyüyüp küçülme
+     
         float scaleOffset = 1f + Mathf.Sin(Time.time * scaleSpeed) * scaleAmount;
         transform.localScale = startScale * scaleOffset;
     }

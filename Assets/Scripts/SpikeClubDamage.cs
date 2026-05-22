@@ -21,7 +21,7 @@ public class SpikeClubDamage : MonoBehaviour
             if (rb != null)
             {
                 Vector3 pushDirection = (collision.transform.position - transform.position).normalized;
-                pushDirection.y = 0.3f; // hafif yukarı it
+                pushDirection.y = 0.3f; 
 
                 rb.linearVelocity = Vector3.zero;
 

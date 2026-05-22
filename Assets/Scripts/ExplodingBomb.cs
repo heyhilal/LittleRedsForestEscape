@@ -42,7 +42,14 @@ public class ExplodingBomb : MonoBehaviour
         {
             exploded = true;
 
+            // EXPLOSION SOUND
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayExplosionSound();
+            }
+
             PlayerHealth health = other.GetComponent<PlayerHealth>();
+
             if (health != null)
             {
                 health.TakeDamage(damageAmount);
@@ -60,7 +67,9 @@ public class ExplodingBomb : MonoBehaviour
     IEnumerator ShowFireTemporarily()
     {
         fireObject.SetActive(true);
+
         yield return new WaitForSeconds(fireDuration);
+
         fireObject.SetActive(false);
     }
 }

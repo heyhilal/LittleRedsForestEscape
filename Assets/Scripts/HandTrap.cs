@@ -23,10 +23,8 @@ public class HandTrap : MonoBehaviour
 {
     while (true)
     {
-        // görünür olsun
         hand.gameObject.SetActive(true);
 
-        // dışarı çık
         while (Vector3.Distance(hand.position, blockPosition) > 0.05f)
         {
             hand.position = Vector3.MoveTowards(
@@ -47,7 +45,6 @@ public class HandTrap : MonoBehaviour
         moveSpeed * Time.deltaTime
     );
 
-    // kutuya yeterince yaklaştıysa direkt kaybol
     if (Vector3.Distance(hand.position, hiddenPosition) < 2f)
     {
         hand.gameObject.SetActive(false);
@@ -56,13 +53,10 @@ public class HandTrap : MonoBehaviour
 
     yield return null;
 }
-
-        // tamamen kaybolsun
         hand.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(waitAtBottom);
 
-        // tekrar çıkmadan önce pozisyon reset
         hand.position = hiddenPosition;
     }
 }

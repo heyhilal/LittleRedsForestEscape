@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     public int totalCollectibles = 4;
     public int score = 0;
 
-    public TMP_Text crystalText;
+    public TMP_Text scoreText;
+    public TMP_Text crystalCounterText;
+
     public GameObject gameOverPanel;
     public GameObject levelCompletePanel;
     public GameObject warningText;
@@ -44,9 +46,7 @@ public class GameManager : MonoBehaviour
     private void OnDestroy()
     {
         if (instance == this)
-        {
             SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -59,24 +59,18 @@ public class GameManager : MonoBehaviour
         gameOverPanel = null;
         levelCompletePanel = null;
         warningText = null;
-        crystalText = null;
+        scoreText = null;
+        crystalCounterText = null;
+
+        if (scene.name == "Level1")
+            totalCollectibles = 5;
+        else if (scene.name == "Level2")
+            totalCollectibles = 4;
+        else if (scene.name == "Level3")
+            totalCollectibles = 6;
 
         FindSceneUIObjects();
         HidePanels();
-
-        if (scene.name == "Level1")
-        {
-            totalCollectibles = 5;
-        }
-        else if (scene.name == "Level2")
-        {
-            totalCollectibles = 4;
-        }
-        else if (scene.name == "Level3")
-        {
-            totalCollectibles = 4; // Level3 kristal sayına göre değiştir
-        }
-
         UpdateUI();
     }
 
@@ -84,28 +78,28 @@ public class GameManager : MonoBehaviour
     {
         GameObject scoreObj = FindObjectEvenIfInactive("ScoreText");
         if (scoreObj != null)
-            crystalText = scoreObj.GetComponent<TMP_Text>();
+            scoreText = scoreObj.GetComponent<TMP_Text>();
+
+        GameObject crystalObj = FindObjectEvenIfInactive("CrystalCounterText");
+        if (crystalObj != null)
+            crystalCounterText = crystalObj.GetComponent<TMP_Text>();
 
         gameOverPanel = FindObjectEvenIfInactive("GameOverPanel");
         levelCompletePanel = FindObjectEvenIfInactive("LevelCompletePanel");
         warningText = FindObjectEvenIfInactive("WarningText");
-
-        if (gameOverPanel == null)
-            Debug.LogWarning("GameOverPanel sahnede bulunamadı!");
-        else
-            Debug.Log("GameOverPanel bulundu: " + gameOverPanel.name);
     }
 
     private GameObject FindObjectEvenIfInactive(string objectName)
     {
-        Transform[] allObjects = Resources.FindObjectsOfTypeAll<Transform>();
+        Transform[] allObjects = FindObjectsByType<Transform>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None
+        );
 
         foreach (Transform obj in allObjects)
         {
             if (obj.name == objectName && obj.gameObject.scene == SceneManager.GetActiveScene())
-            {
                 return obj.gameObject;
-            }
         }
 
         return null;
@@ -131,29 +125,38 @@ public class GameManager : MonoBehaviour
         UpdateUI();
 
         if (collectedCount >= totalCollectibles)
-        {
             LevelComplete();
-        }
     }
 
     public void UpdateUI()
     {
-        if (crystalText != null)
-        {
-            crystalText.text = "Score: " + score;
-        }
+        if (scoreText != null)
+            scoreText.text = "Score: " + score;
+
+        if (crystalCounterText != null)
+            crystalCounterText.text = "Required Crystals: " + collectedCount + " / " + totalCollectibles;
     }
 
     void LevelComplete()
     {
         levelCompleted = true;
+
+        LevelTimer timer = FindFirstObjectByType<LevelTimer>();
+
+        if (timer != null)
+            timer.StopTimer();
     }
 
     public void ShowNextLevelPanel()
     {
         if (levelCompleted && levelCompletePanel != null)
         {
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayLevelCompleteSound();
+
             levelCompletePanel.SetActive(true);
+            levelCompletePanel.transform.SetAsLastSibling();
+
             Time.timeScale = 0f;
         }
     }
@@ -183,24 +186,24 @@ public class GameManager : MonoBehaviour
         collectedCount = 0;
         levelCompleted = false;
 
-        SceneManager.LoadScene("Level2");
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentIndex + 1);
     }
 
     public void ShowGameOver()
     {
         if (gameOverPanel == null)
-        {
             gameOverPanel = FindObjectEvenIfInactive("GameOverPanel");
-        }
 
         if (gameOverPanel != null)
         {
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayGameOverSound();
+
             gameOverPanel.SetActive(true);
+            gameOverPanel.transform.SetAsLastSibling();
+
             Time.timeScale = 0f;
-        }
-        else
-        {
-            Debug.LogWarning("GameOverPanel bulunamadı!");
         }
     }
 
@@ -215,7 +218,8 @@ public class GameManager : MonoBehaviour
         gameOverPanel = null;
         levelCompletePanel = null;
         warningText = null;
-        crystalText = null;
+        scoreText = null;
+        crystalCounterText = null;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -231,7 +235,8 @@ public class GameManager : MonoBehaviour
         gameOverPanel = null;
         levelCompletePanel = null;
         warningText = null;
-        crystalText = null;
+        scoreText = null;
+        crystalCounterText = null;
 
         SceneManager.LoadScene("MainMenu");
     }

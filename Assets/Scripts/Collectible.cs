@@ -17,6 +17,11 @@ public class Collectible : MonoBehaviour
                 GameManager.instance.CollectItem();
             }
 
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayCrystalCollect();
+            }
+
             gameObject.SetActive(false);
         }
     }

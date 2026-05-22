@@ -7,7 +7,6 @@ public class MovingObstacle : MonoBehaviour
 
     public bool moveOnZAxis = true;
 
-    // 🔥 Yeni eklediğimiz
     public bool startFromA = false;
 
     private Vector3 pointA;
@@ -26,8 +25,6 @@ public class MovingObstacle : MonoBehaviour
             pointA = transform.position + new Vector3(-moveDistance, 0f, 0f);
             pointB = transform.position + new Vector3(moveDistance, 0f, 0f);
         }
-
-        // 🔥 Başlangıç yönü seçimi
         targetPoint = startFromA ? pointA : pointB;
     }
 

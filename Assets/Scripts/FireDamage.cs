@@ -27,7 +27,7 @@ public class FireDamage : MonoBehaviour
                 health.TakeDamage(damageAmount);
             }
 
-            // 🔻 SMOKE EFFECT (ATEŞ HİZASI)
+            // 🔻 SMOKE EFFECT 
             if (smokeEffectPrefab != null)
             {
                 Vector3 spawnPos = other.bounds.min + new Vector3(0f, 0.1f, 0f);

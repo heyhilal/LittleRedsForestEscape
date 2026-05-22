@@ -107,7 +107,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("GameManager instance bulunamadı!");
+            Debug.LogWarning("GameManager instance not found!");
         }
     }
 }

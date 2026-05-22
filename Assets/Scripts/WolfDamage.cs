@@ -6,11 +6,8 @@ public class WolfDamage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // ❌ ARTIK DAMAGE YOK
-            // ❌ PUSHBACK YOK
-
-            // sadece debug için istersen:
-            Debug.Log("Wolf touched player");
+          
+         
         }
     }
 }

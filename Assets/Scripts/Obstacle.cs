@@ -23,6 +23,11 @@ public class Obstacle : MonoBehaviour
         {
             health.TakeDamage(damage);
 
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayDamageSound();
+            }
+
             if (respawnPoint != null)
             {
                 Rigidbody rb = other.GetComponentInParent<Rigidbody>();

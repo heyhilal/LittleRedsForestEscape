@@ -8,7 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 0.5f;
     public float forwardJumpForce = 1.5f;
     public float damageCooldown = 1f;
-    public float strafeAmount = 0.5f;
+    public float strafeAmount = 1f;
+
+    [Header("Footstep SFX")]
+    public float walkStepInterval = 0.40f;
+    public float runStepInterval = 0.20f;
+
+    private float footstepTimer = 0f;
 
     public bool useXAxisAsForward = false;
     public Transform respawnPoint;
@@ -26,6 +32,12 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 level2ForwardDirection = Vector3.left;
     public float turnSmoothSpeed = 1.5f;
     public float bodyTurnSpeed = 5f;
+
+    [Header("Level 3 Body Turn")]
+    public bool enableLevel3BodyTurn = false;
+
+    [Header("Landing SFX")]
+    public bool enableLandingSound = true;
 
     private Vector3 targetForwardDirection;
 
@@ -106,9 +118,32 @@ public class PlayerMovement : MonoBehaviour
         if (animator != null)
             animator.SetFloat("Speed", blendValue);
 
+        HandleFootsteps(isMoving, isRunning);
+
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             Jump();
+        }
+    }
+
+    void HandleFootsteps(bool isMoving, bool isRunning)
+    {
+        if (!isGrounded || !isMoving || !canMove)
+        {
+            footstepTimer = 0f;
+            return;
+        }
+
+        float interval = isRunning ? runStepInterval : walkStepInterval;
+
+        footstepTimer -= Time.deltaTime;
+
+        if (footstepTimer <= 0f)
+        {
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayFootstepSound();
+
+            footstepTimer = interval;
         }
     }
 
@@ -133,16 +168,21 @@ public class PlayerMovement : MonoBehaviour
         if (lookDirection.magnitude < 0.1f)
             lookDirection = forward;
 
-        if (Mathf.Abs(v) > 0.1f || Mathf.Abs(h) > 0.1f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+if (Mathf.Abs(v) > 0.1f || Mathf.Abs(h) > 0.1f)
+{
+    Quaternion targetRotation;
 
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
-                targetRotation,
-                bodyTurnSpeed * Time.deltaTime
-            );
-        }
+    if (enableLevel3BodyTurn)
+        targetRotation = Quaternion.LookRotation(lookDirection);
+    else
+        targetRotation = Quaternion.LookRotation(forward);
+
+    transform.rotation = Quaternion.Slerp(
+        transform.rotation,
+        targetRotation,
+        bodyTurnSpeed * Time.deltaTime
+    );
+}
     }
 
     void HandleNormalMovement(float h, float v)
@@ -174,13 +214,11 @@ public class PlayerMovement : MonoBehaviour
                 sideTurnSpeed * Time.deltaTime
             );
         }
-        else
-        {
-            if (v > 0.1f)
-                transform.forward = baseForward;
-            else if (v < -0.1f)
-                transform.forward = baseBack;
-        }
+  else
+{
+    if (Mathf.Abs(v) > 0.1f)
+        transform.forward = baseForward;
+}
     }
 
     void FixedUpdate()
@@ -210,6 +248,9 @@ public class PlayerMovement : MonoBehaviour
         if (animator != null)
             animator.SetTrigger("JumpTrigger");
 
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayJumpSound();
+
         isGrounded = false;
     }
 
@@ -230,24 +271,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
+       if (collision.gameObject.CompareTag("Ground"))
+{
+if (!isGrounded)
+{
+    if (enableLandingSound && AudioManager.Instance != null)
+        AudioManager.Instance.PlayLandingSound();
+}
 
-            if (snapToGroundOnLanding)
-            {
-                rb.linearVelocity = new Vector3(
-                    rb.linearVelocity.x,
-                    0f,
-                    rb.linearVelocity.z
-                );
-            }
-        }
+    isGrounded = true;
+
+    if (snapToGroundOnLanding)
+    {
+        rb.linearVelocity = new Vector3(
+            rb.linearVelocity.x,
+            0f,
+            rb.linearVelocity.z
+        );
+    }
+}
 
         if (collision.gameObject.CompareTag("Obstacle") && canTakeDamage)
         {
             if (playerHealth != null)
                 playerHealth.TakeDamage(1);
+
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayDamageSound();
 
             Vector3 pushDirection = -transform.forward;
             rb.MovePosition(rb.position + pushDirection * 2f);
@@ -283,7 +333,6 @@ public class PlayerMovement : MonoBehaviour
 
         targetForwardDirection = newDirection;
 
-        Debug.Log("Yeni hedef yön: " + targetForwardDirection);
     }
 
     public void EnableLeftTurn()
@@ -302,7 +351,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (respawnPoint == null)
         {
-            Debug.LogWarning("Respawn Point atanmadı!");
+            Debug.LogWarning("Respawn Point is null!");
             return;
         }
 

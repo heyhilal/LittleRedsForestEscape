@@ -10,6 +10,9 @@ public class WaterDamage : MonoBehaviour
     public float shakeSpeed = 35f;
     public float sinkSpeed = 6f;
 
+    [Header("Water Sound Timing")]
+    public float splashDelay = 0.35f;
+
     private bool isRespawning = false;
 
     private void OnTriggerEnter(Collider other)
@@ -28,6 +31,14 @@ public class WaterDamage : MonoBehaviour
         Rigidbody rb = player.GetComponent<Rigidbody>();
         PlayerHealth health = player.GetComponent<PlayerHealth>();
         Animator animator = player.GetComponentInChildren<Animator>();
+
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayFallingScream();
+
+        yield return new WaitForSeconds(splashDelay);
+
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayWaterSplash();
 
         if (movement != null)
             movement.canMove = false;

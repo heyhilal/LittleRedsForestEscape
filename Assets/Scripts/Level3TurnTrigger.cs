@@ -26,14 +26,12 @@ public class Level3TurnTrigger : MonoBehaviour
                 {
                     player.SetLevel3MoveDirection(leftMoveDirection);
                     used = true;
-                    Debug.Log("Level3 yumuşak sol dönüş çalıştı");
                 }
 
                 if (isRightTurnTrigger)
                 {
                     player.SetLevel3MoveDirection(rightMoveDirection);
                     used = true;
-                    Debug.Log("Level3 yumuşak sağ dönüş çalıştı");
                 }
             }
         }

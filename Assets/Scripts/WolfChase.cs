@@ -11,12 +11,16 @@ public class WolfChase : MonoBehaviour
     public float damageCooldown = 1.5f;
     public float pushBackForce = 4f;
 
+    [Header("Wolf Sound Settings")]
+    public float growlInterval = 4f;
+
     public string runAnimationName = "Running_New";
     public string idleAnimationName = "Idle_New";
 
     private Transform player;
     private bool isChasing = false;
     private bool canDamage = true;
+    private float growlTimer = 0f;
     private Animator animator;
 
     void Start()
@@ -45,6 +49,8 @@ public class WolfChase : MonoBehaviour
 
         if (isChasing && distance > catchDistance)
         {
+            HandleGrowlSound();
+
             Vector3 direction = player.position - transform.position;
             direction.y = 0f;
 
@@ -79,11 +85,26 @@ public class WolfChase : MonoBehaviour
         }
         else
         {
+            growlTimer = 0f;
+
             if (animator != null &&
                 !animator.GetCurrentAnimatorStateInfo(0).IsName(idleAnimationName))
             {
                 animator.Play(idleAnimationName);
             }
+        }
+    }
+
+    void HandleGrowlSound()
+    {
+        growlTimer -= Time.deltaTime;
+
+        if (growlTimer <= 0f)
+        {
+            if (AudioManager.Instance != null)
+                AudioManager.Instance.PlayWolfChaseSound();
+
+            growlTimer = growlInterval;
         }
     }
 
