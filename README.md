@@ -98,7 +98,6 @@ Each model carries its own Creative Commons license — see individual model pag
 3. Open `Assets/Scenes/MainMenu` scene
 4. Press Play or build for Windows
 
-**Minimum requirements:** Windows 10, 4 GB RAM, DirectX 11 GPU
 
 ---
 
